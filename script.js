@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	function removeData(){
 		localStorage.removeItem('Data');
 	}
-	submitBtn.addEventListner('submit',(event)=>{
+	submitBtn.addEventListener('submit',(event)=>{
 		event.preventDefault();
 		alert(`Logged in as ${userName}`);
 		let obj={
