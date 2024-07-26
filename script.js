@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 	let submitBtn=document.getElementById('login-form');
 	let userName=document.getElementById('username');
-	let Password=document.getElementById('username');
+	let Password=document.getElementById('password');
 	let Checked=document.getElementById('checkbox').checked;
 	let stored=[];
 	let ExistingData=localStorage.getItem('Data');
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	})
 	// let UserName=localStorage.getItem('Data')
 	document.getElementById('existing').addEventListener('click',()=>{
-		
-    alert(`Logged in as ${ExistingData[0]}.`);
+		const savedData = JSON.parse(localStorage.getItem('Data'));
+    alert(`Logged in as ${savedData[0].user}.`)
   })
 })
