@@ -8,22 +8,16 @@
 
 <body>
 	<!-- the entire body must be written by student -->
-	<div class="formInfo">
-		<h1>Login Form</h1>
-        <form action="" id="form">
-            <label for="Usenname">
-            <input type="text" placeholder="Username" id="username" name="Usenname">
-        </label>
-            <label for="Password">
-            <input type="password" placeholder="Password" id="password" name="Password">
-        </label>
-            <div class="check">
-                <input type="checkbox" name="Check" id="checkbox">
-            <label for="Check">Remember me</label>
-            </div>
-            <input type='submit' value='Submit' id="submit" >
-        </form>
-    </div>
+	<h1>Login Form</h1>
+  <form id="login-form">
+    <input type="text" id="username" placeholder="Username"><br>
+    <input type="password" id="password" placeholder="Password"><br>
+    <label>
+      <input type="checkbox" id="checkbox"> Remember me
+    </label><br>
+    <input type="submit" id="submit" value="Submit">
+  </form>
+  <button id="existing" style="display: none;">Login as existing user</button>
     <script type="text/javascript" src="./script.js">
 </script>
 
