@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	let stored=[];
 	let ExistingData=localStorage.getItem('Data');
   if(ExistingData){
-    document.getElementById('existing').style.display = 'block'
+    document.getElementById('existing').style.display = 'block';
   }
 	function saveData(){
 		localStorage.setItem('Data', JSON.stringify(stored))
@@ -35,7 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 		
 	})
+	// let UserName=localStorage.getItem('Data')
 	document.getElementById('existing').addEventListener('click',()=>{
-    alert(`Logged in as ${user}.`);
+		
+    alert(`Logged in as ${ExistingData[0]}.`);
   })
 })
