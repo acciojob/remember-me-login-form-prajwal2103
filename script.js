@@ -1,40 +1,38 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const loginForm = document.getElementById('login-form');
-  const usernameInput = document.getElementById('username');
-  const passwordInput = document.getElementById('password');
-  const rememberMeCheckbox = document.getElementById('checkbox');
-  const existingUserButton = document.getElementById('existing');
+	let submitBtn=document.getElementById('login-form');
+	let userName=document.getElementById('username').value;
+	let Password=document.getElementById('username').value;
+	let Checked=document.getElementById('checkbox').checked;
+	let stored=[];
+	let ExistingData=localStorage.getItem('Data')
+	function saveData(){
+		localStorage.setItem('Data' JSON.stringify(stored))
+	}
+	function removeData(){
+		localStorage.removeItem('Data');
+	}
+	submitBtn.addEventListner('submit',(event)=>{
+		event.preventDefault();
+		alert(`Logged in as ${userName}`);
+		let obj={
+			user:userName,
 
-  // Check if there are saved details in localStorage
-  const savedUsername = localStorage.getItem('username');
-  const savedPassword = localStorage.getItem('password');
-
-  if (savedUsername && savedPassword) {
-    existingUserButton.style.display = 'block';
-  }
-
-  loginForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const username = usernameInput.value;
-    const password = passwordInput.value;
-    const rememberMe = rememberMeCheckbox.checked;
-
-    if (rememberMe) {
-      localStorage.setItem('username', username);
-      localStorage.setItem('password', password);
-    } else {
-      localStorage.removeItem('username');
-      localStorage.removeItem('password');
-    }
-
-    alert(`Logged in as ${username}`);
-
-    if (savedUsername && savedPassword) {
-      existingUserButton.style.display = 'block';
-    }
-  });
-
-  existingUserButton.addEventListener('click', () => {
-    alert(`Logged in as ${savedUsername}`);
-  });
-});
+			password:Password
+		};
+		if(Checked){
+			stored.push(obj);
+			saveData();
+		}
+			
+		else{
+			removeData()
+		}
+		if(ExistingData){
+			document.getElementById('existing').style.display = 'block'
+		}
+		
+	})
+		document.getElementById('existing').addEventListener('click',()=>{
+    alert(`Logged in as ${userName}`);
+  })
+})
