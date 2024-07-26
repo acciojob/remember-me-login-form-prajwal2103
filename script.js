@@ -7,6 +7,7 @@ let Stored=[];
 
 let btn=document.getElementById('form');
 btn.addEventListener('submit',()=>{
+	alert(`Logged in as ${username}`);
  let user=document.getElementById('username').value;
   let password=document.getElementById('password').value;
   let checked=document.getElementById('checkbox').checked;
