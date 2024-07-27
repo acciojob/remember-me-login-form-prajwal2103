@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	// let UserName=localStorage.getItem('Data')
 	document.getElementById('existing').addEventListener('click',()=>{
 		const savedData = JSON.parse(localStorage.getItem('Data'));
-    alert(`Logged in as ${savedData[0].user}.`)
+    // alert(`Logged in as ${savedData[0].user}.`)
+		alert('Logged in as username')
   })
 })
