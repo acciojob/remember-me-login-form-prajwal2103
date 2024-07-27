@@ -35,6 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
 			lolocalStorage.setItem('user');
 			localStorage.setItem('password');
 		}
+		if(SaveUser && SavePassword){
+	    document.getElementById('existing').style.display = 'block';
+	  }
 		
 	})
 	// let UserName=localStorage.getItem('Data')
