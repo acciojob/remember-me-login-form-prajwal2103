@@ -3,17 +3,22 @@ document.addEventListener('DOMContentLoaded', () => {
 	let userName=document.getElementById('username');
 	let Password=document.getElementById('password');
 	let Checked=document.getElementById('checkbox').checked;
-	let stored=[];
-	let ExistingData=localStorage.getItem('Data');
-  if(ExistingData){
-    document.getElementById('existing').style.display = 'block';
-  }
-	function saveData(){
-		localStorage.setItem('Data', JSON.stringify(stored))
+	// let stored=[];
+	// let ExistingData=localStorage.getItem('Data');
+	let SaveUser=localStorage.getItem('user');
+	let SavePassword=localStorage.getItem('password');
+	if(SaveUser && SavePassword){
+	 document.getElementById('existing').style.display = 'block';
 	}
-	function removeData(){
-		localStorage.removeItem('Data');
-	}
+ //  if(ExistingData){
+ //    document.getElementById('existing').style.display = 'block';
+ //  }
+	// function saveData(){
+	// 	localStorage.setItem('Data', JSON.stringify(stored))
+	// }
+	// function removeData(){
+	// 	localStorage.removeItem('Data');
+	// }
   
 	submitBtn.addEventListener('submit',(event)=>{
     let user=userName.value;
@@ -21,24 +26,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // console.log(user);
 		event.preventDefault();
 		alert(`Logged in as ${user}.`);
-		let obj={
-			user:user,
-			password:password
-		};
 		if(Checked){
-			stored.push(obj);
-			saveData();
+			localStorage.setItem('user',user);
+			localStorage.setItem('password',password);
 		}
 			
 		else{
-			removeData()
+			lolocalStorage.setItem('user');
+			localStorage.setItem('password');
 		}
 		
 	})
 	// let UserName=localStorage.getItem('Data')
 	document.getElementById('existing').addEventListener('click',()=>{
-		const savedData = JSON.parse(localStorage.getItem('Data'));
-    // alert(`Logged in as ${savedData[0].user}.`)
-		alert('Logged in as username')
+		// const savedData = JSON.parse(localStorage.getItem('Data'));
+     alert(`Logged in as ${SaveUser}.`)
+		
   })
 })
